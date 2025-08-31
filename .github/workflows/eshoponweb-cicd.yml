@@ -78,12 +78,12 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
            
     # Deploy Azure WebApp using Bicep file
-    - name: deploy
+    - name: Deploy Azure WebApp
       uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ env.SUBSCRIPTION-ID }}
         resourceGroupName: ${{ env.RESOURCE-GROUP }}
-        template: bicep-template/webapp.bicep
+        template: infra/webapp.bicep
         parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
         failOnStdErr: false   
     
